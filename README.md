@@ -37,3 +37,16 @@ Collapse Point: Arithmetic Error
 Claim: 2+2=5
 Status: ❌ Collapsed
 Notes: Contradiction detected against axiomatic arithmetic rules.
+---
+
+## 🚀 Status
+Codex is in **prototype stage** (Python CLI → JSON/HTML reports).  
+The focus is on proving that *failure-only memory* works: lean, auditable, and useful.
+
+---
+
+## 🤝 Get Involved
+- If your framework already produces reports like this → please share an example.  
+- If not, and you want to test Codex on your agent loop → open an Issue or DM me.  
+- Ideas, critiques, and forks welcome. The goal is simple:  
+  **stop hoarding noise, remember what failed, and learn from it.**
