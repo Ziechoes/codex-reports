@@ -28,7 +28,7 @@ Execution halted to preserve system correctness.
 
 Required next step: request clarification before any state-changing operation.
 
-DEMO:
+Demo Template:
 
 Input:
 [brief, realistic prompt]
