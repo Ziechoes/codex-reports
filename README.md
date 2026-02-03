@@ -27,3 +27,19 @@ Invariant violated: irreversible actions require explicit confirmation.
 Execution halted to preserve system correctness.
 
 Required next step: request clarification before any state-changing operation.
+
+DEMO:
+
+Input:
+[brief, realistic prompt]
+
+Hidden assumption:
+[what must be true for a safe action]
+
+Decision boundary:
+[where action would normally be taken]
+
+System response:
+"I cannot proceed because [missing info / violated assumption].
+Here is what would need to be true to continue."
+
