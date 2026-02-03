@@ -24,8 +24,6 @@ Uncertainty detected: downstream action would be irreversible without verified u
 
 Invariant violated: irreversible actions require explicit confirmation.
 
-Context is insufficient to guarantee correctness.
-
 Execution halted to preserve system correctness.
 
 Required next step: request clarification before any state-changing operation.
