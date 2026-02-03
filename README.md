@@ -1,58 +1,17 @@
-Codex Reports = reasoning-integrity at action boundaries.
-Instead of storing everything, it logs only when the system might be wrong at a commit boundary (contradiction / unknown / opacity gap) and outputs a compact, auditable report.
+This repository explores failure semantics in AI systems, specifically how reasoning systems behave when assumptions break.
 
-Demo (non-atomic commit → ghost state):
-DB write succeeds → event publish fails → system “continues” while reality has forked.
-Codex: flags uncertainty + forces review before downstream actions.
+The core question is simple: how does an AI system know when it should stop, slow down, or surface uncertainty before taking an irreversible action?
 
-If you want to stress-test: open an issue with a real failure mode. I’ll reply with a “collapse report” template.
----
+This is not a model, framework, or agent implementation. It is a reasoning and design artifact intended to examine structural failure modes that occur even when systems appear to be working correctly.
 
-## 📖 What is Codex?
-Most agent frameworks store *everything* into memory.  
-That creates:
-- Memory bloat (vector DBs full of junk)  
-- Agents repeating the same mistakes  
-- No clear audit trail of why reasoning collapsed  
+Modern LLM-based systems are very good at producing fluent and useful outputs. They are much less reliable at recognizing when their internal assumptions are no longer valid. In practice, this leads to systems that continue operating with partially invalid state, act confidently without sufficient justification, and cross decision boundaries without realizing recovery is no longer possible. These failures are often silent. Nothing crashes, but the system is already wrong.
 
-Codex flips this around.  
-It only logs **failure points**:
-- ❌ Contradictions  
-- ⚠️ Opacity gaps  
-- ❓ Unknowns  
+This work focuses on reasoning integrity rather than output quality. It examines how uncertainty should be represented internally, where hard decision or commit boundaries exist, how drift accumulates in long-running systems, and when rollback is no longer safe or meaningful. The goal is not to eliminate failure, but to make failure visible and bounded.
 
-This produces a **compact, auditable Reasoning Report** instead of a noisy transcript.
+Any autonomous or semi-autonomous system must explicitly define how it handles uncertainty, where decisions become irreversible or costly, how it detects reasoning drift, and when it should halt, escalate, or request human intervention. If these are not defined, reliability degrades regardless of model capability.
 
----
+This project does not define safety policy, moral or normative rules, benchmarks, performance metrics, or a specific architecture or toolchain. It is intentionally implementation-agnostic.
 
-## 📝 Demo Output
+This artifact can be used to audit agent or workflow designs, identify silent failure modes, stress-test decision boundaries, and evaluate whether a system can recognize when it is wrong.
 
-Example collapse report for a trivial failure (`2+2=5`):
-
-```json
-{
-  "collapse_point": "Arithmetic Error",
-  "claim": "2+2=5",
-  "evidence": "Contradicts elementary arithmetic",
-  "status": "collapsed",
-  "timestamp": "2025-08-29T11:24:00Z"
-}
-Reasoning Report
-----------------
-Collapse Point: Arithmetic Error
-Claim: 2+2=5
-Status: ❌ Collapsed
-Notes: Contradiction detected against axiomatic arithmetic rules.
----
-
-## 🚀 Status
-Codex is in **prototype stage** (Python CLI → JSON/HTML reports).  
-The focus is on proving that *failure-only memory* works: lean, auditable, and useful.
-
----
-
-## 🤝 Get Involved
-- If your framework already produces reports like this → please share an example.  
-- If not, and you want to test Codex on your agent loop → open an Issue or DM me.  
-- Ideas, critiques, and forks welcome. The goal is simple:  
-  **stop hoarding noise, remember what failed, and learn from it.**
+This is a living document. Clarity and precision matter more than completeness.
