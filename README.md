@@ -15,3 +15,17 @@ This project does not define safety policy, moral or normative rules, benchmarks
 This artifact can be used to audit agent or workflow designs, identify silent failure modes, stress-test decision boundaries, and evaluate whether a system can recognize when it is wrong.
 
 This is a living document. Clarity and precision matter more than completeness.
+
+Demo Output:
+
+User intent requires an irreversible action.
+
+Uncertainty detected: downstream action would be irreversible without verified user intent.
+
+Invariant violated: irreversible actions require explicit confirmation.
+
+Context is insufficient to guarantee correctness.
+
+Execution halted to preserve system correctness.
+
+Required next step: request clarification before any state-changing operation.
