@@ -1,5 +1,11 @@
-D# codex-reports
-Lightweight module for agent memory. Logs only reasoning failures (contradictions, opacity gaps, unknowns) → compact, auditable Reasoning Reports.
+Codex Reports = reasoning-integrity at action boundaries.
+Instead of storing everything, it logs only when the system might be wrong at a commit boundary (contradiction / unknown / opacity gap) and outputs a compact, auditable report.
+
+Demo (non-atomic commit → ghost state):
+DB write succeeds → event publish fails → system “continues” while reality has forked.
+Codex: flags uncertainty + forces review before downstream actions.
+
+If you want to stress-test: open an issue with a real failure mode. I’ll reply with a “collapse report” template.
 ---
 
 ## 📖 What is Codex?
